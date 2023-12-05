@@ -1,4 +1,5 @@
 import { Inter } from "next/font/google";
+import classnames from "classnames";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -10,8 +11,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="zh-hans" className="h-full bg-white">
-      <body className={`h-full ${inter.fontFamily}`}>{children}</body>
+    <html lang="zh-hans" className="h-full">
+      <body className={classnames("h-full bg-black", inter.fontFamily)}>{children}</body>
     </html>
   );
 }
