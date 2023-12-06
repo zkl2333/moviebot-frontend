@@ -11,9 +11,9 @@ const mediaList = Array.from({ length: 20 }, (_, i) => ({
 
 const Index = () => {
   return (
-    <div className="max-w-7xl mx-auto my-4 px-4">
+    <div className="mx-auto">
       <div className="text-2xl font-bold mb-6">网格布局</div>
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8">
+      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-8">
         {mediaList.map((media) => (
           <div key={media.id} className="shadow-md space-y-2">
             <Image
@@ -21,8 +21,8 @@ const Index = () => {
               alt="Picture of the author"
               className="object-cover rounded-2xl"
             />
-            <div className="text-lg">{media.title}</div>
-            <div className="text-sm text-gray-500 overflow-hidden line-clamp-2">
+            <div className="text-md md:text-lg">{media.title}</div>
+            <div className="text-xs md:text-sm text-gray-500 overflow-hidden line-clamp-2">
               {media.summary}
             </div>
           </div>
