@@ -1,11 +1,11 @@
 import BigPoster from "../component/BigPoster";
+import GridMediaList from "../component/GridMediaList";
+
 export default function Home() {
   return (
     <div className="">
       <BigPoster />
-      <div className="h-[100vh] text-white">
-        lora ipsum dolor sit amet, consectetur adipiscing elit. sed do eiusmod
-      </div>
+      <GridMediaList />
     </div>
   );
 }

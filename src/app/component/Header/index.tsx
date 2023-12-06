@@ -7,7 +7,7 @@ import React, { Fragment } from "react";
 const index = ({ user, navigation, userNavigation }) => {
   return (
     <>
-      <Disclosure as="nav" className="fixed left-0 right-0 border-b border-gray-900 bg-black/80">
+      <Disclosure as="nav" className="fixed z-10 left-0 right-0 border-b border-gray-900 bg-black/80">
         {({ open }) => (
           <>
             <div className="px-4 sm:px-6 lg:px-8">
@@ -44,15 +44,6 @@ const index = ({ user, navigation, userNavigation }) => {
                   </div>
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:items-center">
-                  <button
-                    type="button"
-                    className="relative rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                  >
-                    <span className="absolute -inset-1.5" />
-                    <span className="sr-only">View notifications</span>
-                    <BellIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>
-
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative ml-3">
                     <div>

@@ -1,12 +1,11 @@
 import React from "react";
 import Image from "next/image";
-import BackdropSrc from "./Backdrop.jpg";
-import LogoSrc from "./Logo.png";
-import PrimarySrc from "./Primary.jpg";
+import BackdropSrc from "../../tempImg/backdrop.jpg";
+import LogoSrc from "../../tempImg/logo.png";
 
 const Index = () => {
   return (
-    <div className="w-full h-[100vh] relative -z-10">
+    <div className="w-full h-[100vh] relative">
       <div className="mask w-full h-full bg-gradient-to-t from-black to-transparent">
         <Image
           src={BackdropSrc}
@@ -15,7 +14,7 @@ const Index = () => {
         />
       </div>
       <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent">
-        <div className="absolute bottom-0 px-40 py-40">
+        <div className="absolute max-w-7xl left-0 right-0 mx-auto bottom-0 py-40">
           <Image src={LogoSrc} alt="Picture of the author" className="object-contain w-1/3 h-1/3" />
           <div className="text-white text-lg mt-10">
             当我们为权力金钱焦虑、兴奋与愤怒时，却根本想象不到“他们”在谈论着怎样更重要的事情。
