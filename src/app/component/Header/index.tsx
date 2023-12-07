@@ -22,7 +22,7 @@ const Index = ({ navigation }) => {
     <Disclosure as="nav" className="fixed z-10 left-0 right-0">
       {({ open }) => (
         <div style={{ backgroundColor: `rgba(3 7 18 / ${0.6 + opacity * 0.4})` }}>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div className="mx-4 sm:mx-8 md:mx-12 lg:mx-16 xl:mx-24 2xl:mx-32">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}

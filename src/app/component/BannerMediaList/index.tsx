@@ -31,7 +31,14 @@ const Index = () => {
 
   return (
     <div className="mx-auto">
-      <div className="text-2xl font-bold mb-6">通栏布局</div>
+      <div className="mx-auto text-center max-w-4xl space-y-6 mb-6">
+        <div className="text-5xl font-bold">通栏横向滚动布局</div>
+        <div className="text-lg line-clamp-2 text-gray-500">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem doloremque nam quo
+          necessitatibus officiis. Nihil esse sapiente optio iure quasi velit quisquam odio?
+          Perferendis tenetur nam nihil vel excepturi tempora?
+        </div>
+      </div>
       {/* 横向滚动 */}
       <div className="relative group">
         {/* 翻页 */}

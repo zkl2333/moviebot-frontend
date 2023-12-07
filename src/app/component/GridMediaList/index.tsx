@@ -12,8 +12,15 @@ const mediaList = Array.from({ length: 20 }, (_, i) => ({
 const Index = () => {
   return (
     <div className="mx-auto">
-      <div className="text-2xl font-bold mb-6">网格布局</div>
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 md:gap-8">
+      <div className="mx-auto text-center max-w-4xl space-y-6 mb-6">
+        <div className="text-5xl font-bold">网格平铺布局</div>
+        <div className="text-lg line-clamp-2 text-gray-500">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem doloremque nam quo
+          necessitatibus officiis. Nihil esse sapiente optio iure quasi velit quisquam odio?
+          Perferendis tenetur nam nihil vel excepturi tempora?
+        </div>
+      </div>
+      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-10 gap-3 md:gap-8">
         {mediaList.map((media) => (
           <div key={media.id} className="shadow-md space-y-2">
             <Image

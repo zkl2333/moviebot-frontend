@@ -6,14 +6,8 @@ import LogoSrc from "../../tempImg/logo.png";
 const Index = () => {
   return (
     <div className="w-full h-[100vh] relative">
-      <div className="mask w-full h-full bg-gradient-to-t from-black to-transparent">
-        <Image
-          src={BackdropSrc}
-          alt="Picture of the author"
-          className="object-cover w-full h-full"
-        />
-      </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent">
+      <Image src={BackdropSrc} alt="Picture of the author" className="object-cover w-full h-full" />
+      <div className="absolute inset-0 bg-gradient-to-t from-gray-950 to-transparent">
         <div className="absolute mx-4 sm:mx-8 md:mx-12 lg:mx-16 xl:mx-24 2xl:mx-32 left-0 right-0 bottom-0 py-10 md:py-40">
           <Image
             src={LogoSrc}
