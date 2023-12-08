@@ -1,27 +1,31 @@
 "use client";
-/* eslint-disable @next/next/no-img-element */
-import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import classNames from "classnames";
 import React, { Fragment, useEffect, useState } from "react";
+import Image from "next/image";
 
 const Index = ({ navigation }) => {
   const [opacity, setOpacity] = useState(0);
 
-  // 在顶部时，透明 `rgba(3 7 18 / ${0.6 + opacity * 0.4})`
   useEffect(() => {
     const handleScroll = () => {
-      const opacity = window.scrollY / 200;
-      setOpacity(opacity);
+      requestAnimationFrame(() => {
+        const opacity = window.scrollY / 200;
+        setOpacity(opacity);
+      });
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <Disclosure as="nav" className="fixed z-10 left-0 right-0">
+    <Disclosure as="nav" className="fixed z-20 left-0 right-0">
       {({ open }) => (
-        <div style={{ backgroundColor: `rgba(3 7 18 / ${0.6 + opacity * 0.4})` }}>
+        <div
+          style={{ backgroundColor: `rgba(3 7 18 / ${0 + opacity * 1})` }}
+          className="bg-gradient-to-b from-gray-900/70 to-90% to-transparent transition-all duration-100"
+        >
           <div className="mx-4 sm:mx-8 md:mx-12 lg:mx-16 xl:mx-24 2xl:mx-32">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -38,7 +42,9 @@ const Index = ({ navigation }) => {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <img
+                  <Image
+                    width={47}
+                    height={40}
                     className="h-8 w-auto"
                     src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
                     alt="Your Company"
@@ -80,7 +86,9 @@ const Index = ({ navigation }) => {
                     <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
-                      <img
+                      <Image
+                        width={256}
+                        height={256}
                         className="h-8 w-8 rounded-full"
                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                         alt=""

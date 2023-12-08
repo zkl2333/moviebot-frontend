@@ -1,11 +1,12 @@
-"use client";
 import Image from "next/image";
-import data from "./data";
-import { Icon } from "@iconify/react";
+import { fetchTmdb } from "../../../utils";
+import Icon from "../Icon";
 
-const mediaList = data.results;
+export default async function Index() {
+  const {
+    data: { results: mediaList },
+  } = await fetchTmdb("/movie/popular", { language: "zh-CN", page: "1" });
 
-const Index = () => {
   return (
     <div className="mx-auto">
       <div className="mx-auto text-center max-w-4xl space-y-6 mb-6">
@@ -24,7 +25,6 @@ const Index = () => {
               width={500}
               height={720}
               className="rounded-2xl"
-              layout="responsive"
               alt={media.title}
             />
             <div className="text-md md:text-xl line-clamp-1">{media.title}</div>
@@ -43,6 +43,4 @@ const Index = () => {
       </div>
     </div>
   );
-};
-
-export default Index;
+}
