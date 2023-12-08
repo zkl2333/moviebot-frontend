@@ -1,31 +1,7 @@
 import Image from "next/image";
-import PrimarySrc from "../../tempImg/primary.jpg";
 
-const mediaLibraryList = [
-  {
-    name: "电影",
-    description: "热门 & 经典",
-    bg: PrimarySrc,
-  },
-  {
-    name: "剧集",
-    description: "过去 & 当前季",
-    bg: PrimarySrc,
-  },
-  {
-    name: "动漫",
-    description: "热血 & 治愈",
-    bg: PrimarySrc,
-  },
-  ,
-  {
-    name: "动漫电影",
-    description: "宫崎骏 & 新海诚",
-    bg: PrimarySrc,
-  },
-];
-
-const Index = () => {
+const Index = ({ mediaLibraryList }) => {
+  const _mediaLibraryList = mediaLibraryList.slice(1, 5);
   return (
     <div className="mx-auto text-center">
       <div className="mx-auto space-y-2 md:space-y-6 mb-6 max-w-4xl">
@@ -37,22 +13,40 @@ const Index = () => {
         </div>
       </div>
       <div className="mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 lg:gap-12 max-w-7xl">
-        {mediaLibraryList.map((item, index) => {
+        {_mediaLibraryList.map((item) => {
           return (
             <div
-              key={index}
+              key={item.id}
               className="relative rounded-2xl overflow-hidden hover:outline outline-gray-700 outline-offset-4 outline-4 transition-all"
             >
-              <Image src={item.bg} alt="Picture of the author" />
+              <Image
+                src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+                width={500}
+                height={720}
+                className="rounded-2xl"
+                alt={item.title}
+              />
               <div
-                className="absolute inset-0 space-y-1 md:space-y-2 text-start p-3 md:p-4
+                className="absolute inset-0 space-y-1 md:space-y-2 p-3 md:p-4 flex flex-col justify-center items-center
                     bg-gradient-to-t from-10% from-black/50 via-transparent to-90% to-black/50 
                     hover:from-black/80 hover:via-black/30 hover:to-black/80 hover:outline-white"
               >
-                <div className="text-sm md:text-xl font-semibold text-white">
-                  {item.description}
+                <div
+                  className="text-lg md:text-xl font-bold text-white"
+                  style={{
+                    textShadow: "0 0 4px rgba(0,0,0,1)",
+                  }}
+                >
+                  {item.title}
                 </div>
-                <div className="text-xl md:text-3xl font-bold text-white">{item.name}</div>
+                <div
+                  className="text-sm md:text-md font-bold text-white"
+                  style={{
+                    textShadow: "0 0 4px rgba(0,0,0,1)",
+                  }}
+                >
+                  {item.original_title}
+                </div>
               </div>
             </div>
           );

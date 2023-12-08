@@ -23,7 +23,7 @@ export default async function Page() {
       <BigPoster movieId={data.results.length && data.results[0].id} />
       <div className="my-12 space-y-12 md:space-y-24 mx-4 sm:mx-8 md:mx-12 lg:mx-16 xl:mx-24 2xl:mx-32">
         <BannerMediaList />
-        <MediaLibraryList />
+        <MediaLibraryList mediaLibraryList={data.results} />
         <GridMediaList />
       </div>
     </div>

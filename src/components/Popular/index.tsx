@@ -13,6 +13,16 @@ export default async function Index() {
     mediaList = mediaList.concat(results);
   }
 
+  // 去重 id
+  const idSet = new Set();
+  mediaList = mediaList.filter((media) => {
+    if (idSet.has(media.id)) {
+      return false;
+    }
+    idSet.add(media.id);
+    return true;
+  });
+
   return (
     <div className="mx-auto">
       <div className="mx-auto text-center max-w-4xl space-y-6 mb-6">
@@ -23,7 +33,7 @@ export default async function Index() {
           获取按受欢迎程度排序的电影列表，包括正在上映的电影和即将上映的电影。
         </div>
       </div>
-      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-10 gap-4 sm:gap-6 lg:gap-8">
+      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-8 gap-4 sm:gap-6 lg:gap-8">
         {mediaList.map((media) => (
           <Link href={`/movie/${media.id}`} key={media.id} className="shadow-md space-y-2">
             <Image

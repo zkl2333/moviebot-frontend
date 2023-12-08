@@ -1,3 +1,9 @@
+import { setGlobalDispatcher, ProxyAgent } from "undici";
+
+if (process.env.HTTP_PROXY) {
+  setGlobalDispatcher(new ProxyAgent(process.env.HTTP_PROXY));
+}
+
 export const fetchTmdb = async (
   endpoint: string,
   search: string | URLSearchParams | string[][] | Record<string, string>
