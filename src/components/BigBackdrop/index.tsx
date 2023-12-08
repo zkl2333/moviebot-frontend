@@ -40,7 +40,7 @@ const Index = async ({ movieId = "157336" }) => {
   }
 
   return (
-    <div className="w-full h-[100vh] relative">
+    <div className="w-full h-[100svh] relative">
       {backdrop && (
         <Image
           src={`https://image.tmdb.org/t/p/original${backdrop.file_path}`}
