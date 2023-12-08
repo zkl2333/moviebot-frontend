@@ -1,4 +1,4 @@
-export default async function DashboardLayout({ children, header }) {
+export default function DashboardLayout({ children, header }) {
   return (
     <>
       <header>{header}</header>

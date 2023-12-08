@@ -1,8 +1,8 @@
 import Image from "next/image";
-import "./style.css";
 import HorizontalScroll from "../HorizontalScroll/inedx";
-import { fetchTmdb } from "../../../utils";
+import { fetchTmdb } from "../../utils";
 import Icon from "../Icon";
+import Link from "next/link";
 
 const Index = async () => {
   const {
@@ -26,7 +26,11 @@ const Index = async () => {
       <HorizontalScroll>
         {mediaList.map((media) => {
           return (
-            <div key={media.id} className="w-32 md:w-52 space-y-2 flex-shrink-0 overflow-hidden">
+            <Link
+              href={`/movie/${media.id}`}
+              key={media.id}
+              className="w-32 md:w-52 space-y-2 flex-shrink-0 overflow-hidden"
+            >
               <Image
                 src={`https://image.tmdb.org/t/p/w500${media.poster_path}`}
                 width={500}
@@ -35,7 +39,7 @@ const Index = async () => {
                 alt={media.title}
               />
               <div className="text-md md:text-xl line-clamp-1">{media.title}</div>
-              <div className="text-xs md:text-xs text-gray-500">{media.release_date}I</div>
+              <div className="text-xs md:text-xs text-gray-500">{media.release_date}</div>
               <div>
                 <div className="text-xs md:text-sm text-gray-500 line-clamp-2">
                   {media.overview}
@@ -48,7 +52,7 @@ const Index = async () => {
                   <span className="text-gray-500 text-xs ml-2">({media.vote_count} votes)</span>
                 </div>
               </div>
-            </div>
+            </Link>
           );
         })}
       </HorizontalScroll>

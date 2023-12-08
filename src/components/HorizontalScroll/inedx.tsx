@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState, useRef } from "react";
 import { Icon } from "@iconify/react";
+import "./style.css";
 
 const HorizontalScroll: React.FC<{
   children: React.ReactNode;

@@ -4,6 +4,7 @@ import { BellIcon, Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import classNames from "classnames";
 import React, { Fragment, useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const Index = ({ navigation }) => {
   const [opacity, setOpacity] = useState(0);
@@ -20,11 +21,19 @@ const Index = ({ navigation }) => {
   }, []);
 
   return (
-    <Disclosure as="nav" className="fixed z-20 left-0 right-0">
+    <Disclosure
+      as="nav"
+      className="fixed z-20 left-0 right-0"
+      style={{ backgroundColor: `rgba(3 7 18 / ${0 + opacity * 1})` }}
+    >
       {({ open }) => (
         <div
-          style={{ backgroundColor: `rgba(3 7 18 / ${0 + opacity * 1})` }}
-          className="bg-gradient-to-b from-gray-900/70 to-90% to-transparent transition-all duration-100"
+          className={classNames(
+            "bg-gradient-to-b from-gray-900/70 to-90% to-transparent transition-all duration-300",
+            {
+              "bg-gray-900": open,
+            }
+          )}
         >
           <div className="mx-4 sm:mx-8 md:mx-12 lg:mx-16 xl:mx-24 2xl:mx-32">
             <div className="relative flex h-16 items-center justify-between">
@@ -53,9 +62,9 @@ const Index = ({ navigation }) => {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
-                        key={item.name}
+                      <Link
                         href={item.href}
+                        key={item.name}
                         className={classNames(
                           item.current
                             ? "bg-gray-900 text-white"
@@ -65,7 +74,7 @@ const Index = ({ navigation }) => {
                         aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -107,41 +116,41 @@ const Index = ({ navigation }) => {
                     <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            href="/"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
                             )}
                           >
                             Your Profile
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            href="/"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
                             )}
                           >
                             Settings
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
-                            href="#"
+                          <Link
+                            href="/"
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700"
                             )}
                           >
                             Sign out
-                          </a>
+                          </Link>
                         )}
                       </Menu.Item>
                     </Menu.Items>
@@ -156,7 +165,7 @@ const Index = ({ navigation }) => {
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
-                  as="a"
+                  as={Link}
                   href={item.href}
                   className={classNames(
                     item.current

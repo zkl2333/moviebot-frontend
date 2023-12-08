@@ -3,18 +3,19 @@ export const fetchTmdb = async (
   search: string | URLSearchParams | string[][] | Record<string, string>
 ) => {
   const searchParams = new URLSearchParams(search);
+  searchParams.append("api_key", process.env.TMDB_API_KEY);
   const origin = new URL(`https://api.themoviedb.org/3/${endpoint}`);
   origin.search = searchParams.toString();
 
   try {
-    const res = await fetch(origin, {
-      headers: {
-        Authorization: `Bearer ${process.env.TMDB_API_KEY}`,
-      },
-    });
+    const res = await fetch(origin);
     const data = await res.json();
+    if (data.success == false) {
+      console.log(data);
+      throw new Error(data?.status_message || "Something went wrong");
+    }
     return { origin, data };
   } catch (error) {
-    return { origin, error };
+    throw new Error(error.message);
   }
 };

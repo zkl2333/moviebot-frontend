@@ -1,11 +1,17 @@
 import Image from "next/image";
-import { fetchTmdb } from "../../../utils";
+import { fetchTmdb } from "../../utils";
 import Icon from "../Icon";
+import Link from "next/link";
 
 export default async function Index() {
-  const {
-    data: { results: mediaList },
-  } = await fetchTmdb("/movie/popular", { language: "zh-CN", page: "1" });
+  // 获取五页
+  let mediaList = [];
+  for (let i = 1; i <= 5; i++) {
+    const {
+      data: { results },
+    } = await fetchTmdb("/movie/popular", { language: "zh-CN", page: i.toString() });
+    mediaList = mediaList.concat(results);
+  }
 
   return (
     <div className="mx-auto">
@@ -19,7 +25,7 @@ export default async function Index() {
       </div>
       <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-10 gap-4 sm:gap-6 lg:gap-8">
         {mediaList.map((media) => (
-          <div key={media.id} className="shadow-md space-y-2">
+          <Link href={`/movie/${media.id}`} key={media.id} className="shadow-md space-y-2">
             <Image
               src={`https://image.tmdb.org/t/p/w500${media.poster_path}`}
               width={500}
@@ -38,7 +44,7 @@ export default async function Index() {
                 <span className="text-gray-500 text-xs ml-2">({media.vote_count} votes)</span>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
