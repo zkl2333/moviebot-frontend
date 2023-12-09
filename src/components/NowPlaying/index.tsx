@@ -34,7 +34,7 @@ const Index = async () => {
               <Image
                 src={`https://image.tmdb.org/t/p/w500${media.poster_path}`}
                 width={500}
-                height={720}
+                height={750}
                 className="rounded-2xl"
                 alt={media.title}
               />

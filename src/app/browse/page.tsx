@@ -3,6 +3,7 @@ import GridMediaList from "../../components/Popular";
 import BannerMediaList from "../../components/NowPlaying";
 import MediaLibraryList from "../../components/MediaLibraryList";
 import { fetchTmdb } from "../../utils";
+import FullScreen from "../../components/FullScreen";
 
 export default async function Page() {
   // 今年最热门的高分电影
@@ -19,13 +20,15 @@ export default async function Page() {
   });
 
   return (
-    <div className="">
-      <BigPoster movieId={data.results.length && data.results[0].id} />
+    <>
+      <FullScreen>
+        <BigPoster movieId={data.results.length && data.results[0].id} />
+      </FullScreen>
       <div className="my-12 space-y-12 md:space-y-24 mx-4 sm:mx-8 md:mx-12 lg:mx-16 xl:mx-24 2xl:mx-32">
         <BannerMediaList />
         <MediaLibraryList mediaLibraryList={data.results} />
         <GridMediaList />
       </div>
-    </div>
+    </>
   );
 }
