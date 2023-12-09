@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.mx-container {
+  @apply mx-6 sm:mx-8 md:mx-12 lg:mx-16 xl:mx-24 2xl:mx-32;
+}
+
+.ml-container {
+  @apply ml-6 sm:ml-8 md:ml-12 lg:ml-16 xl:ml-24 2xl:ml-32;
+}
+
+.r-text-xs {
+  @apply text-[12px] sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl;
+}
+
+.r-text-sm {
+  @apply text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl;
+}
+
+.r-text-base {
+  @apply text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl;
+}
+
+.r-text-lg {
+  @apply text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl;
+}
+
+.r-text-xl {
+  @apply text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl;
+}

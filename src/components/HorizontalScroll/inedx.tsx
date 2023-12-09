@@ -28,7 +28,7 @@ const HorizontalScroll: React.FC<{
     <div className={`relative group`}>
       {leftHasMore && (
         <button
-          className="absolute z-10 left-0 top-0 h-full w-20 group-hover:opacity-100 opacity-10 bg-gradient-to-l from-transparent from-10% to-gray-950 flex justify-start items-center text-3xl transition-all"
+          className="absolute hidden md:flex z-10 left-0 top-0 h-full w-20 group-hover:opacity-100 opacity-10 bg-gradient-to-l from-transparent from-10% to-gray-950 justify-start items-center text-3xl transition-all"
           onClick={() =>
             scrollRef.current?.scrollBy({
               left: -scrollRef.current.clientWidth,
@@ -41,7 +41,7 @@ const HorizontalScroll: React.FC<{
       )}
       {rightHasMore && (
         <button
-          className="absolute z-10 right-0 top-0 h-full w-20 group-hover:opacity-100 opacity-10 bg-gradient-to-r from-transparent to-90% to-gray-950 flex justify-end items-center text-3xl transition-all"
+          className="absolute hidden md:flex z-10 right-0 top-0 h-full w-20 group-hover:opacity-100 opacity-10 bg-gradient-to-r from-transparent to-90% to-gray-950 justify-end items-center text-3xl transition-all"
           onClick={() =>
             scrollRef.current?.scrollBy({ left: scrollRef.current.clientWidth, behavior: "smooth" })
           }
