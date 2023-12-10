@@ -1,32 +1,24 @@
 "use client";
 
-import { useEffect } from "react";
-
-export default function Error({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string };
-  reset: () => void;
-}) {
-  useEffect(() => {
-    console.error(error);
-  }, [error]);
-
+export default function Error({ error, reset }) {
   return (
-    <div className="flex flex-col justify-center items-center h-[100vh] p-4 gap-3">
-      <h2 className="text-7xl -mr-12 font-bold">寄！</h2>
-      <p className="text-2xl text-gray-500 text-center">{error.message}</p>
-      <p className="text-md text-gray-500 text-center">
-        追踪码：
-        {error.digest}
-      </p>
-      <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        onClick={() => reset()}
-      >
-        再试试
-      </button>
-    </div>
+    <main className="h-full mx-auto flex w-full max-w-7xl flex-auto flex-col justify-center px-6 py-24 sm:py-64 lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 py-32 text-center">
+        <h1 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-5xl">页面寄了</h1>
+        <p className="mt-4 text-base text-white/70 sm:mt-6">{error.message}</p>
+        <p className="mt-4 text-base text-white/70 sm:mt-6">追踪码： {error.digest}</p>
+        <div className="mt-10 flex flex-col gap-4 justify-center items-center">
+          <span
+            className="text-sm font-semibold leading-7 text-white cursor-pointer"
+            onClick={() => reset()}
+          >
+            再试试
+          </span>
+          <a href="/" className="text-sm font-semibold leading-7 text-white">
+            返回首页
+          </a>
+        </div>
+      </div>
+    </main>
   );
 }

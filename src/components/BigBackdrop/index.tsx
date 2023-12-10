@@ -110,19 +110,16 @@ const Index = async ({ movieId = "157336", showInfo = true }) => {
                 );
               })}
             </div>
-            <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-4 sm:grid-cols-2">
+            <div className="my-2 grid grid-cols-2 gap-x-6 gap-y-4 pt-4">
               <Link
                 href={`/movie/${data.id}`}
                 type="button"
-                className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+                className="btn btn-sm md:btn-md btn-primary"
               >
-                订阅
+                查看详情
               </Link>
-              <button
-                type="button"
-                className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-50 px-8 py-3 text-base font-medium text-indigo-700 hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
-              >
-                添加到收藏
+              <button type="button" className="btn btn-sm md:btn-md btn-secondary">
+                添加订阅
               </button>
             </div>
           </div>

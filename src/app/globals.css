@@ -2,30 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-.mx-container {
-  @apply mx-6 sm:mx-8 md:mx-12 lg:mx-16 xl:mx-24 2xl:mx-32;
+@layer utilities {
+  .mx-container {
+    @apply mx-6 sm:mx-8 md:mx-12 lg:mx-16 xl:mx-24 2xl:mx-32;
+  }
+
+  .ml-container {
+    @apply ml-6 sm:ml-8 md:ml-12 lg:ml-16 xl:ml-24 2xl:ml-32;
+  }
+
+  .r-text-xs {
+    @apply text-[12px] sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl;
+  }
+
+  .r-text-sm {
+    @apply text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl;
+  }
+
+  .r-text-base {
+    @apply text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl;
+  }
+
+  .r-text-lg {
+    @apply text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl;
+  }
+
+  .r-text-xl {
+    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl;
+  }
 }
 
-.ml-container {
-  @apply ml-6 sm:ml-8 md:ml-12 lg:ml-16 xl:ml-24 2xl:ml-32;
-}
+@layer components {
+  /* 基础按钮样式 */
+  .btn {
+    @apply rounded font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 text-center;
+  }
 
-.r-text-xs {
-  @apply text-[12px] sm:text-xs md:text-sm lg:text-base xl:text-lg 2xl:text-xl;
-}
+  /* 主要按钮样式 */
+  .btn-primary {
+    @apply bg-indigo-600 hover:bg-indigo-500;
+  }
 
-.r-text-sm {
-  @apply text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl 2xl:text-2xl;
-}
+  /* 次要按钮样式 */
+  .btn-secondary {
+    @apply bg-gray-600 hover:bg-gray-500;
+  }
 
-.r-text-base {
-  @apply text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl;
-}
+  /* 不同尺寸的按钮 */
+  .btn-xs {
+    @apply px-2 py-1 text-xs;
+  }
 
-.r-text-lg {
-  @apply text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl;
-}
+  .btn-sm {
+    @apply px-3 py-2 text-sm;
+  }
 
-.r-text-xl {
-  @apply text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl;
+  .btn-md {
+    @apply px-4 py-3 text-base;
+  }
+
+  .btn-lg {
+    @apply px-5 py-4 text-lg;
+  }
+
+  .btn-xl {
+    @apply px-6 py-5 text-xl;
+  }
 }

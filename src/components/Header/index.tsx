@@ -28,12 +28,9 @@ const Index = ({ navigation }) => {
     >
       {({ open }) => (
         <div
-          className={classNames(
-            "bg-gradient-to-b from-gray-900/70 to-90% to-transparent transition-all duration-300",
-            {
-              "bg-gray-900": open,
-            }
-          )}
+          className={classNames("bg-gradient-to-b from-gray-900/70 to-90% to-transparent", {
+            "bg-gray-900": open,
+          })}
         >
           <div className="mx-4 sm:mx-8 md:mx-12 lg:mx-16 xl:mx-24 2xl:mx-32">
             <div className="relative flex h-16 items-center justify-between">
@@ -50,15 +47,6 @@ const Index = ({ navigation }) => {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
-                  <Image
-                    width={47}
-                    height={40}
-                    className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                    alt="Your Company"
-                  />
-                </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
@@ -67,7 +55,7 @@ const Index = ({ navigation }) => {
                         key={item.name}
                         className={classNames(
                           item.current
-                            ? "bg-gray-900 text-white"
+                            ? "bg-gray-900/80 text-white"
                             : "text-gray-300 hover:bg-gray-700 hover:text-white",
                           "rounded-md px-3 py-2 text-sm font-medium"
                         )}
